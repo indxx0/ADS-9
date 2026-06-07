@@ -3,8 +3,9 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
-#include  "tree.h"
 #include <algorithm>
+#include  "tree.h"
+
 
 PMTree::PMTree(std::vector<char> in) {
     root = new Node('*');
@@ -38,7 +39,8 @@ PMTree::~PMTree() {
     destroy(root);
 }
 
-void traverseAll(PMTree::Node* node, std::vector<char>& current, std::vector<std::vector<char>>& result) {
+void traverseAll(PMTree::Node* node, std::vector<char>& current, 
+    std::vector<std::vector<char>>& result) {
     if (node->children.empty()) {
         if (!current.empty()) {
             result.push_back(current);
@@ -59,7 +61,8 @@ std::vector<std::vector<char>> getAllPerms(const PMTree& tree) {
     return result;
 }
 
-bool traverseForPerm1(PMTree::Node* node, int target, int& counter, std::vector<char>& path, std::vector<char>& result) {
+bool traverseForPerm1(PMTree::Node* node, int target, int& counter, 
+    std::vector<char>& path, std::vector<char>& result) {
     if (node->children.empty()) {
         if (!path.empty()) {
             counter++;
