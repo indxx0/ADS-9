@@ -25,7 +25,7 @@ int main() {
 
         PMTree tree(alphabet);
 
-        long long fact = 1;
+        int64_t fact = 1;
         for (int i = 2; i <= n; ++i) fact *= i;
 
         std::uniform_int_distribution<long long> dist(1, fact);
@@ -43,9 +43,12 @@ int main() {
         getPerm2(tree, targetNum);
         auto end2 = std::chrono::high_resolution_clock::now();
 
-        auto dAll = std::chrono::duration_cast<std::chrono::microseconds>(endAll - startAll).count();
-        auto d1 = std::chrono::duration_cast<std::chrono::microseconds>(end1 - start1).count();
-        auto d2 = std::chrono::duration_cast<std::chrono::microseconds>(end2 - start2).count();
+        auto dAll = std::chrono::
+            duration_cast<std::chrono::microseconds>(endAll - startAll).count();
+        auto d1 = std::chrono::
+            duration_cast<std::chrono::microseconds>(end1 - start1).count();
+        auto d2 = std::chrono::
+            duration_cast<std::chrono::microseconds>(end2 - start2).count();
 
         file << n << "," << dAll << "," << d1 << "," << d2 << "\n";
         std::cout << "Processed N = " << n << std::endl;
