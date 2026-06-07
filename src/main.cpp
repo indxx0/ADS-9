@@ -1,10 +1,10 @@
 // Copyright 2022 NNTU-CS
-#include "tree.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <chrono>
 #include <random>
+#include "tree.h"
 
 int main() {
     std::ofstream file("result/results.csv");
