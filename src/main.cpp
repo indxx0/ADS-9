@@ -28,8 +28,8 @@ int main() {
         int64_t fact = 1;
         for (int i = 2; i <= n; ++i) fact *= i;
 
-        std::uniform_int_distribution<long long> dist(1, fact);
-        long long targetNum = dist(gen);
+        std::uniform_int_distribution<int64_t> dist(1, fact);
+        int64_t targetNum = dist(gen);
 
         auto startAll = std::chrono::high_resolution_clock::now();
         getAllPerms(tree);
