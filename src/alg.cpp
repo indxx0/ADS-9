@@ -39,7 +39,7 @@ PMTree::~PMTree() {
     destroy(root);
 }
 
-void traverseAll(PMTree::Node* node, std::vector<char>& current, 
+void traverseAll(PMTree::Node* node, std::vector<char>& current,
     std::vector<std::vector<char>>& result) {
     if (node->children.empty()) {
         if (!current.empty()) {
@@ -61,7 +61,7 @@ std::vector<std::vector<char>> getAllPerms(const PMTree& tree) {
     return result;
 }
 
-bool traverseForPerm1(PMTree::Node* node, int target, int& counter, 
+bool traverseForPerm1(PMTree::Node* node, int target, int& counter,
     std::vector<char>& path, std::vector<char>& result) {
     if (node->children.empty()) {
         if (!path.empty()) {
@@ -90,23 +90,23 @@ std::vector<char> getPerm1(const PMTree& tree, int num) {
     return result;
 }
 
-long long factorial(int n) {
-    long long res = 1;
+int64_t factorial(int n) {
+    int64_t res = 1;
     for (int i = 2; i <= n; ++i) res *= i;
     return res;
 }
 
 std::vector<char> getPerm2(const PMTree& tree, int num) {
     int n = tree.depth;
-    long long total = factorial(n);
+    int64_t total = factorial(n);
     if (num < 1 || num > total) return {};
 
     std::vector<char> result;
     PMTree::Node* curr = tree.root;
-    long long k = num - 1;
+    int64_t k = num - 1;
 
     for (int i = n; i > 0; --i) {
-        long long f = factorial(i - 1);
+        int64_t f = factorial(i - 1);
         int idx = k / f;
         k %= f;
         curr = curr->children[idx];
