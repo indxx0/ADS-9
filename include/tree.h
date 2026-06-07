@@ -4,20 +4,20 @@
 #include <vector>
 
 class PMTree {
-public:
+ public:
     struct Node {
         char value;
         std::vector<Node*> children;
-        Node(char v) : value(v) {}
+        explicit Node(char v) : value(v) {}
     };
 
     Node* root;
     int depth;
 
-    PMTree(std::vector<char> in);
+    explicit PMTree(std::vector<char> in);
     ~PMTree();
 
-private:
+ private:
     void build(Node* node, std::vector<char>& avail);
     void destroy(Node* node);
 };
